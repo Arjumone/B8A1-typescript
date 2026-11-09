@@ -10,3 +10,7 @@ I learned the basic types and how to add types to variables.
 - Object-Oriented Programming
 
 I learned how to make classes and constructors. I used four access modifiers: `public`, `private`, `protected`, and `readonly`. They decide who can use or change the data in a class. I also used a shortcut called parameter properties, and I used `extends` to make one class from another class.
+
+
+[type vs interface](./type-vs-interface.md)
+[Access modifier-OOP](./access-modifiers-OOP.md)

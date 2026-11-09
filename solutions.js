@@ -96,16 +96,4 @@ const validateAgeAsync = (age) => {
         }
     });
 };
-const run = async () => {
-    try {
-        const result = await validateAgeAsync(20);
-    }
-    catch (error) {
-    }
-    try {
-        const result = await validateAgeAsync(15);
-    }
-    catch (error) {
-    }
-};
-run();
+
