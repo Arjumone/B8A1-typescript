@@ -12,8 +12,8 @@ private	only inside the same class
 protected inside the class 
 readonly anywhere to read
 
-1. public: This is the default. If you write no modifier, 
-the member is public.
+1. `public`: This is the default. If you write no modifier, 
+the member is `public`.
 class User {
   public name: string;
 
@@ -24,8 +24,8 @@ class User {
 const user = new User("Arju");
 console.log(user.name);    
 
-2. private: This is the default. If you write no modifier, 
-the member is public.
+2. `private`: This is the `default`. If you write no modifier, 
+the member is `public`.
 
 class Account {
   constructor( private balance: number) {
@@ -40,8 +40,8 @@ class Account {
 const account = new Account(1000);
 account.deposit(500);
 
-3. protector: A protected member works like private, except 
-subclasses can also access it.
+3. `protector`: A protected member works like `private`, except 
+`subclasses` can also access it.
 
 class Employee {
   constructor(protected salary: number) {
@@ -57,8 +57,8 @@ class Manager extends Employee {
 const manager = new Manager(50000);
 console.log(manager.getBonus()); 
 
-4. readonly: A readonly property can be assigned only once: 
-either where it is declared or inside the constructor. 
+4. `readonly`: A `readonly` property can be assigned only once: 
+either where it is declared or inside the `constructor`. 
 After that, it cannot be changed.
 
 class Product {
@@ -78,6 +78,8 @@ const p = new Product(1, "Laptop");
 
 # Conclusion:
 
-Access modifiers help you control how the members of a 
-class can be used. Together, they make your code safer, 
+Access modifiers help you control how the 
+members of a `class` can be used. 
+Together, they make
+ your code safer, 
 easier to maintain, and harder to misuse.
