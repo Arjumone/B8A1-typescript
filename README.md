@@ -1,11 +1,6 @@
 ## Typescript Journey
 
-In this assignment, I worked on TypeScript 
-from basic to advanced topics, such as 
-union types and tuples. I also worked on 
-object-oriented programming with access 
-modifiers. I solved problems, and along 
-with that, It includes the problems I solved.
+In this assignment, I worked on TypeScript from basic to advanced topics, such as union types and tuples. I also worked on object-oriented programming with access modifiers. I solved problems, and along with that, It includes the problems I solved.
 
 ## What I Have Covered So Far
 - TypeScript Basics and Advanced Types

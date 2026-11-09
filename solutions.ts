@@ -84,7 +84,6 @@ const users = [
 pluckValues(users, "name");
 pluckValues(users, "id");
 class Employee{
-
     constructor(protected name:string,
     private baseSalary:number){}
 

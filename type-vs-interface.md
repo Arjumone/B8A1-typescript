@@ -6,8 +6,7 @@ Type vs Interface are describe the shape of data, and for plain object shapes th
 
 # Detailed Body Paragraphs with Code Examples:
 
-- A type alias can name any type: unions, primitives, tuples, mapped types, and so on.
-An interface can only describe object shapes (including functions and classes).
+- A type alias can name any type: unions, primitives, tuples, mapped types, and so on. An interface can only describe object shapes (including functions and classes).
 
 type ID = string | number;        
 type Status = "active" | "inactive";  
@@ -39,8 +38,5 @@ interface Dog extends Animal { breed: string }
 
 # Conclusion:
 
-Type aliases and interfaces both describe the shape of data.
-Use a type alias when you need unions, tuples, or other 
-other types. Use an interface when you want declaration
-merging or a clear contract for objects and classes.
+Type aliases and interfaces both describe the shape of data. Use a type alias when you need unions, tuples, or other types. Use an interface when you want declaration merging or a clear contract for objects and classes.
  
