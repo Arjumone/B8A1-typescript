@@ -1,39 +1,45 @@
 "use strict";
-//1
-function multiplyValue(val1, val2) {
-    if (val1) {
-        return val1 * val1;
+const multiplyValue = (value, multiplier) => {
+    if (multiplier !== undefined) {
+        return value * multiplier;
     }
-    else {
-        return val1 * 2;
-    }
-}
-function processInput(val) {
-    if (typeof val === "string") {
-        const stringValue = val.trim().toLowerCase();
+    return value * 2;
+};
+multiplyValue(10);
+multiplyValue(10, 5);
+multiplyValue(7, 0);
+const processInput = (value) => {
+    if (typeof value === "string") {
+        const stringValue = value.trim().toLowerCase();
         return stringValue;
     }
-    else if (typeof val === "number") {
-        return val * 10;
+    else if (typeof value === "number") {
+        return value * 10;
     }
-    else
-        (typeof val === "boolean");
-    {
-        if (true) {
+    else if (typeof value === "boolean") {
+        if (value) {
             return "Active";
         }
+        else {
+            return "Inactive";
+        }
     }
-    ;
-}
-const processResult = processInput(" Hello");
-const processResult2 = processInput(99);
-const processResult3 = processInput(true);
-const processResult4 = processInput(false);
-// console.log(processResult,processResult2,processResult3,processResult4)
-//3
-function formatCoordinate() {
-}
-//5 done
+};
+processInput(" TypeScript ");
+processInput(7);
+processInput(true);
+processInput(false);
+const formatCoordinate = (coordinate) => {
+    const [latitude, longitude, locationName] = coordinate;
+    return `Location: ${locationName} (${latitude},${longitude})`;
+};
+formatCoordinate([23.81, 90.41, "Dhaka"]);
+formatCoordinate([22.35, 91.78, "Chittagong"]);
+const concatenateArrays = (...arrays) => {
+    return arrays.reduce((acc, curr) => [...acc, ...curr], []);
+};
+concatenateArrays(["a", "b"], ["c", "d"]);
+concatenateArrays([1, 2], [3, 4], [5]);
 const getPopularCourses = (arr, minSNo) => {
     return courses.filter((course) => course.isPublished && course.students >= minSNo);
 };
@@ -43,7 +49,7 @@ const courses = [
     { title: "Basic HTML", students: 45, isPublished: true },
     { title: "Next.js Pro", students: 85, isPublished: true }
 ];
-const result = getPopularCourses(courses, 80);
+getPopularCourses(courses, 80);
 const pluckValues = (items, key) => {
     return items.map((item) => item[key]);
 };
@@ -52,28 +58,23 @@ const users = [
     { id: 2, name: "Sadia", role: "Editor" },
     { id: 3, name: "Tariq", role: "Subscriber" },
 ];
-const result1 = pluckValues(users, "name");
-const result2 = pluckValues(users, "id");
-//7 done 98%
+pluckValues(users, "name");
+pluckValues(users, "id");
 class Employee {
     name;
-    _baseSalary;
-    constructor(name, _baseSalary) {
+    baseSalary;
+    constructor(name, baseSalary) {
         this.name = name;
-        this._baseSalary = _baseSalary;
+        this.baseSalary = baseSalary;
     }
     getDetails() {
-        return `Employee:${this.name},Base Salary:${this._baseSalary}`;
+        return `Employee:${this.name},Base Salary:${this.baseSalary}`;
     }
 }
 class Manager extends Employee {
-    name;
-    baseSalary;
     department;
     constructor(name, baseSalary, department) {
         super(name, baseSalary);
-        this.name = name;
-        this.baseSalary = baseSalary;
         this.department = department;
     }
     getRoleInfo() {
@@ -83,3 +84,28 @@ class Manager extends Employee {
 const manager = new Manager("Alice", 500, "Engineering");
 manager.getDetails();
 manager.getRoleInfo();
+const validateAgeAsync = (age) => {
+    return new Promise((resolve, reject) => {
+        if (age >= 18) {
+            setTimeout(() => {
+                resolve("Access Granted");
+            }, 1000);
+        }
+        else {
+            reject(new Error("Access Denied: Must be 18 or older"));
+        }
+    });
+};
+const run = async () => {
+    try {
+        const result = await validateAgeAsync(20);
+    }
+    catch (error) {
+    }
+    try {
+        const result = await validateAgeAsync(15);
+    }
+    catch (error) {
+    }
+};
+run();

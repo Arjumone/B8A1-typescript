@@ -1,66 +1,53 @@
-//1
+const multiplyValue = (value: number, multiplier?: number) => {
+  if (multiplier !== undefined) {
+    return value * multiplier;
+  }
+  return value * 2;
+};
+multiplyValue(10);
+multiplyValue(10, 5);
+multiplyValue(7, 0);
 
-function multiplyValue(val1:number,val2?:number){
-if(val1){
-return val1 * val1
-}
-else {
-    return val1* 2
-}
-}
+type Input = string | number | boolean;
 
-// const result = multiplyValue(10)
-// const result2 = multiplyValue(10,5)
-// const result3 = multiplyValue(7,0)
-// console.log(result,result2,result3)
-
-
-//2
-
-type Input= string |number| boolean
-
-function processInput(val:Input){
-    if(typeof val==="string"){
-const stringValue = val.trim().toLowerCase()
-return stringValue
+const processInput = (value: Input) => {
+  if (typeof value === "string") {
+    const stringValue = value.trim().toLowerCase();
+    return stringValue;
+  } else if (typeof value === "number") {
+    return value * 10;
+  } else if (typeof value === "boolean") {
+    if (value) {
+      return "Active";
+    } else {
+      return "Inactive";
     }
-    else if(typeof val==="number"){
-   return val * 10
-    }
-    else(typeof val==="boolean"){
- if(true){
-    return "Active"
- }
+  }
+};
 
- 
-    };
-
-}
-
-const processResult = processInput(" Hello")
-const processResult2 = processInput(99)
-const processResult3 = processInput(true)
-const processResult4 = processInput(false)
-// console.log(processResult,processResult2,processResult3,processResult4)
-
-//3
-
-function formatCoordinate(){
-
-}
+processInput(" TypeScript ");
+processInput(7);
+processInput(true);
+processInput(false);
 
 
-// const result1 =formatCoordinate([23.81, 90.41, "Dhaka"]);
-// const result2=formatCoordinate([22.35, 91.78, "Chittagong"]);
+const formatCoordinate = (coordinate:readonly[number,number,string]) => {
+const [latitude,longitude, locationName] = coordinate;
+return `Location: ${locationName} (${latitude},${longitude})`
+};
 
-//4
+formatCoordinate([23.81, 90.41, "Dhaka"]);
+formatCoordinate([22.35, 91.78, "Chittagong"]);
 
-// const concatenateArrays = <T>(...arrays: T[][]): T[][] => {
- 
-// };
 
-// const result1 = concatenateArrays(["a", "b"], ["c", "d"])
 
+
+const concatenateArrays = <T>(...arrays: T[][]): T[] => {
+ return arrays.reduce((acc, curr) => [...acc, ...curr], []);
+};
+
+concatenateArrays(["a", "b"], ["c", "d"]);
+concatenateArrays([1, 2], [3, 4], [5]);
 
 interface Course{
 title :string
@@ -68,9 +55,6 @@ students:number
 isPublished :boolean
 }
 
- 
-
-//5 done
 const getPopularCourses=(arr:Course[],minSNo:number):Course[]=>{
    return courses.filter(
     (course) => course.isPublished && course.students >= minSNo
@@ -84,16 +68,8 @@ const courses = [
   { title: "Next.js Pro", students: 85, isPublished: true }
 ];
 
-const result = getPopularCourses(courses, 80);
-// console.log(result)
+ getPopularCourses(courses, 80);
 
-//6
-
-interface K{
-    id:number
-    name:string
-    role:string
-}
 
 const pluckValues = <T, K extends keyof T>(items: T[], key: K): T[K][] => {
   return items.map((item) => item[key]);
@@ -105,26 +81,21 @@ const users = [
   { id: 3, name: "Tariq", role: "Subscriber" },
 ];
 
-const result1= pluckValues(users, "name");
-const result2=pluckValues(users, "id");
-
-
-//7 done 98%
-
+pluckValues(users, "name");
+pluckValues(users, "id");
 class Employee{
-    
+
     constructor(protected name:string,
-    private _baseSalary:number){}
+    private baseSalary:number){}
 
     getDetails(){
-        return `Employee:${this.name},Base Salary:${this._baseSalary}`
+        return `Employee:${this.name},Base Salary:${this.baseSalary}`
     }
 
 }
-
 class Manager extends Employee{
-    constructor(protected name:string,
-    private baseSalary:number ,private department:string){
+    constructor( name:string,
+     baseSalary:number ,private department:string){
         super(name,baseSalary)
     }
     getRoleInfo(){
@@ -136,11 +107,28 @@ const manager = new Manager("Alice", 500, "Engineering");
 manager.getDetails();
 manager.getRoleInfo();
 
-// console.log(manager)
+const validateAgeAsync = (age: number): Promise<string> => {
+  return new Promise<string>((resolve, reject) => {
+    if (age >= 18) {
+      setTimeout(() => {
+        resolve("Access Granted");
+      }, 1000);
+    } else {
+      reject(new Error("Access Denied: Must be 18 or older"));
+    }
+  });
+};
 
+const run = async (): Promise<void> => {
+  try {
+    const result = await validateAgeAsync(20);
+  } catch (error) {
+  }
 
-//8
+  try {
+    const result = await validateAgeAsync(15);
+  } catch (error) {
+  }
+};
 
-interface User{
-    age:number
-}
+run()
